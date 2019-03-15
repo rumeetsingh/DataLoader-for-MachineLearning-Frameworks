@@ -7,8 +7,6 @@ Easily load image data for training NN
 from dataloader import DataLoader
 ```
 
-Link to [database used](https://github.com/rumeetsingh/my_dataset) below.
-
 ## Usage
 
 ```python
@@ -19,6 +17,8 @@ my_data = DataLoader(DIR,CATEGORIES)
 
 X_train, X_test, y_train, y_test = my_data.create_data(cmap='rgb',test_size=0.2,random_state=42,normalize=True)
 ```
+
+Link to [database used](https://github.com/rumeetsingh/my_dataset) above.
 
 Follow Code in [example.ipynb](https://github.com/rumeetsingh/DataLoader-for-MachineLearning-Frameworks/blob/master/example.ipynb) for implementation.
 
