@@ -12,7 +12,7 @@ class DataLoader:
         self.DIR = DIR
         self.CATEGORIES = CATEGORIES
 
-    def create_data(self,cmap,test_size=0.25,random_state=None,normalize=False):
+    def create_data(self,cmap,test_size=0.25,random_state=None,normalize=False,size_x=50,size_y=50):
         training_data = []
         X = []
         y = []
@@ -27,6 +27,7 @@ class DataLoader:
                         brg_img = cv2.imread(os.path.join(path,img))
                         b,g,r = cv2.split(brg_img)       # get b,g,r
                         img_array = cv2.merge([r,g,b])     # switch it to rgb
+                        img_array = cv2.cv2.resize(img_array,(size_x,size_y))
                         if normalize:
                             img_array = img_array/255
                         training_data.append([img_array,class_num])
@@ -56,4 +57,3 @@ class DataLoader:
             X_test = np.expand_dims(X_test, -1)
 
         return X_train, X_test, y_train, y_test
-
